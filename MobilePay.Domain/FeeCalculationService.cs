@@ -8,6 +8,7 @@ namespace MobilePay.Domain
     public class FeeCalculationService : IFeeCalculationService
     {
         private const int FEE_PERCENTAGE = 1;
+        private const decimal INVOICE_FEE = 29;
 
         private readonly IDiscountService _discountService;
 
@@ -30,6 +31,11 @@ namespace MobilePay.Domain
             if (discount.HasValue)
             {
                 fee -= fee / 100 * discount.Value;
+            }
+
+            if (fee > 0 && transaction.IsFirstTransactionOfTheMonth)
+            {
+                fee += INVOICE_FEE;
             }
 
             return new TransactionFee(transaction, Math.Round(fee, 2));

@@ -1,6 +1,7 @@
 ﻿using MobilePay.Contracts;
 using MobilePay.Domain;
 using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -10,6 +11,7 @@ namespace MobilePay
     class Program
     {
         private static IFeeCalculationService _feeCalculationService = new FeeCalculationService(new DiscountService());
+        private static List<Merchant> _merchants = new List<Merchant>();
 
         static void Main(string[] args)
         {
@@ -18,6 +20,7 @@ namespace MobilePay
             var transactions = transactionsInput.Where(x => !string.IsNullOrWhiteSpace(x)).Select(ParseTransaction).ToList();
             
             var transactionFees = _feeCalculationService.CalculateFees(transactions);
+            
             foreach (var transactionFee in transactionFees)
             {
                 Console.WriteLine(transactionFee.ToString());
@@ -29,10 +32,19 @@ namespace MobilePay
         private static Transaction ParseTransaction(string transaction)
         {
             var transactionDetails = transaction.Trim().Split(' ', StringSplitOptions.RemoveEmptyEntries);
+
+            var merchant = _merchants.FirstOrDefault(x => x.Name == transactionDetails[1]);
+
+            if (merchant == null)
+            {
+                merchant = new Merchant(transactionDetails[1]);
+                _merchants.Add(merchant);
+            }
+               
             return new Transaction(
                 DateTime.ParseExact(transactionDetails[0], "yyyy-MM-dd", CultureInfo.InvariantCulture),
                 decimal.Parse(transactionDetails[2], NumberStyles.AllowDecimalPoint),
-                new Merchant(transactionDetails[1]));
+                merchant);
         }
     }
 }

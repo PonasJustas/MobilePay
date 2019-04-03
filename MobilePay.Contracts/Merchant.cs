@@ -1,13 +1,18 @@
-﻿namespace MobilePay.Contracts
+﻿using System.Collections.Generic;
+
+namespace MobilePay.Contracts
 {
     public class Merchant
     {
         public Merchant(string name)
         {
             Name = name;
+            Transactions = new List<Transaction>();
         }
 
         public string Name { get; }
+
+        public List<Transaction> Transactions { get; }
         
         public override bool Equals(object obj)
         {

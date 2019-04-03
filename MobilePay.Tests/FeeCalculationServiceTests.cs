@@ -28,19 +28,25 @@ namespace Tests
         {
             get
             {
-                yield return new TestCaseData(new Transaction(new DateTime(2018, 9, 2), 120, new Merchant("CIRCLE_K")))
-                    .Returns(new TransactionFee(
-                        new Transaction(new DateTime(2018, 9, 2), 120, new Merchant("CIRCLE_K")),
-                        0.96M));
-                yield return new TestCaseData(new Transaction(new DateTime(2018, 9, 4), 200, new Merchant("TELIA")))
-                    .Returns(new TransactionFee(new Transaction(new DateTime(2018, 9, 4), 200, new Merchant("TELIA")),
-                        1.80M));
-                yield return new TestCaseData(new Transaction(new DateTime(2018, 10, 22), 300, new Merchant("CIRCLE_K")))
-                    .Returns(new TransactionFee(new Transaction(new DateTime(2018, 10, 22), 300, new Merchant("CIRCLE_K")),
-                        2.40M));
-                yield return new TestCaseData(new Transaction(new DateTime(2018, 10, 29), 150, new Merchant("CIRCLE_K")))
-                    .Returns(new TransactionFee(new Transaction(new DateTime(2018, 10, 29), 150, new Merchant("CIRCLE_K")),
-                        1.20M));
+                var circleKMerchant = new Merchant("CIRCLE_K");
+                var teliaMerchant = new Merchant("TELIA");
+
+                var transaction = new Transaction(new DateTime(2018, 9, 2), 120, circleKMerchant);
+                yield return new TestCaseData(transaction)
+                    .Returns(new TransactionFee(transaction, 29.96M));
+
+                transaction = new Transaction(new DateTime(2018, 9, 4), 200, teliaMerchant);
+                yield return new TestCaseData(transaction)
+                    .Returns(new TransactionFee(transaction, 30.80M));
+
+                transaction = new Transaction(new DateTime(2018, 10, 22), 300, circleKMerchant);
+                yield return new TestCaseData(transaction)
+                    .Returns(new TransactionFee(transaction, 31.40M));
+
+                transaction = new Transaction(new DateTime(2018, 10, 29), 150, circleKMerchant);
+                yield return new TestCaseData(transaction)
+                    .Returns(new TransactionFee(transaction, 1.20M));
+
                 //yield return new TestCaseData( 0, 0 )
                 //    .Throws(typeof(DivideByZeroException))
                 //    .SetName("DivideByZero")
