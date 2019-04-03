@@ -7,7 +7,8 @@ namespace MobilePay.Domain
         // obviously these constants should not be here. It would be better to read them from a file or some other source...
         private Dictionary<string, int> _merchantDiscountPercentages = new Dictionary<string, int>
         {
-            { "TELIA", 10 }
+            { "TELIA", 10 },
+            { "CIRCLE_K", 20 }
         };
 
         public int? GetDiscountPercentage(string merchantName)

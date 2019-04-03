@@ -27,7 +27,7 @@ namespace MobilePay.Tests
                 yield return new TestCaseData("TELIA")
                     .Returns(10);
                 yield return new TestCaseData("CIRCLE_K")
-                    .Returns(null);
+                    .Returns(20);
                 yield return new TestCaseData("NETTO")
                     .Returns(null);
             }

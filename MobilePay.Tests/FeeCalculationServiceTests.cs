@@ -31,16 +31,16 @@ namespace Tests
                 yield return new TestCaseData(new Transaction(new DateTime(2018, 9, 2), 120, new Merchant("CIRCLE_K")))
                     .Returns(new TransactionFee(
                         new Transaction(new DateTime(2018, 9, 2), 120, new Merchant("CIRCLE_K")),
-                        1.20M));
+                        0.96M));
                 yield return new TestCaseData(new Transaction(new DateTime(2018, 9, 4), 200, new Merchant("TELIA")))
                     .Returns(new TransactionFee(new Transaction(new DateTime(2018, 9, 4), 200, new Merchant("TELIA")),
                         1.80M));
                 yield return new TestCaseData(new Transaction(new DateTime(2018, 10, 22), 300, new Merchant("CIRCLE_K")))
                     .Returns(new TransactionFee(new Transaction(new DateTime(2018, 10, 22), 300, new Merchant("CIRCLE_K")),
-                        3.00M));
+                        2.40M));
                 yield return new TestCaseData(new Transaction(new DateTime(2018, 10, 29), 150, new Merchant("CIRCLE_K")))
                     .Returns(new TransactionFee(new Transaction(new DateTime(2018, 10, 29), 150, new Merchant("CIRCLE_K")),
-                        1.50M));
+                        1.20M));
                 //yield return new TestCaseData( 0, 0 )
                 //    .Throws(typeof(DivideByZeroException))
                 //    .SetName("DivideByZero")
