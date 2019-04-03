@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\MobilePay.Domain\MobilePay.Domain.csproj" />
+    <ProjectReference Include="..\MobilePay.Domain\MobilePay.Domain.csproj" />
   </ItemGroup>
 
 </Project>

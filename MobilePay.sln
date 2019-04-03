@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.28307.329
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobilePay", "MobilePay\MobilePay.csproj", "{8D8B6E08-102D-419D-A79F-6D1EB5FD5536}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobilePay.Domain", "..\MobilePay.Domain\MobilePay.Domain.csproj", "{4F262473-EAA5-4547-9E66-3D66DB5339A9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobilePay.Domain", "MobilePay.Domain\MobilePay.Domain.csproj", "{4F262473-EAA5-4547-9E66-3D66DB5339A9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobilePay.Contracts", "MobilePay.Contracts\MobilePay.Contracts.csproj", "{8DADF9AC-ED62-4995-976C-0FE25F1EFFDD}"
 EndProject

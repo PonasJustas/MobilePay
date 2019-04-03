@@ -13,7 +13,7 @@ namespace Tests
         [SetUp]
         public void Setup()
         {
-            _feeCalculationService = new FeeCalculationService();
+            _feeCalculationService = new FeeCalculationService(new DiscountService());
         }
 
         [TestCaseSource(nameof(TestCases))]
@@ -34,7 +34,7 @@ namespace Tests
                         1.20M));
                 yield return new TestCaseData(new Transaction(new DateTime(2018, 9, 4), 200, new Merchant("TELIA")))
                     .Returns(new TransactionFee(new Transaction(new DateTime(2018, 9, 4), 200, new Merchant("TELIA")),
-                        2.00M));
+                        1.80M));
                 yield return new TestCaseData(new Transaction(new DateTime(2018, 10, 22), 300, new Merchant("CIRCLE_K")))
                     .Returns(new TransactionFee(new Transaction(new DateTime(2018, 10, 22), 300, new Merchant("CIRCLE_K")),
                         3.00M));
