@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace MobilePay.Domain
+namespace MobilePay.Services
 {
     public class FeeCalculationService : IFeeCalculationService
     {

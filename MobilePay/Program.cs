@@ -1,5 +1,5 @@
 ﻿using MobilePay.Contracts;
-using MobilePay.Domain;
+using MobilePay.Services;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -10,11 +10,17 @@ namespace MobilePay
 {
     class Program
     {
-        private static IFeeCalculationService _feeCalculationService = new FeeCalculationService(new DiscountService());
+        private static IDiscountService _discountService;
+        private static IFeeCalculationService _feeCalculationService;
         private static List<Merchant> _merchants = new List<Merchant>();
 
         static void Main(string[] args)
         {
+            _discountService = new DiscountService();
+            _feeCalculationService = new FeeCalculationService(_discountService);
+
+            _discountService.AddOrUpdateDiscount("TELIA", 10);
+            _discountService.AddOrUpdateDiscount("CIRCLE_K", 20);
 
             var transactionsInput = File.ReadLines("transactions.txt");
             var transactions = transactionsInput.Where(x => !string.IsNullOrWhiteSpace(x)).Select(ParseTransaction).ToList();

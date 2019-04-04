@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.329
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobilePay", "MobilePay\MobilePay.csproj", "{8D8B6E08-102D-419D-A79F-6D1EB5FD5536}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MobilePay", "MobilePay\MobilePay.csproj", "{8D8B6E08-102D-419D-A79F-6D1EB5FD5536}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobilePay.Domain", "MobilePay.Domain\MobilePay.Domain.csproj", "{4F262473-EAA5-4547-9E66-3D66DB5339A9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MobilePay.Services", "MobilePay.Services\MobilePay.Services.csproj", "{4F262473-EAA5-4547-9E66-3D66DB5339A9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobilePay.Contracts", "MobilePay.Contracts\MobilePay.Contracts.csproj", "{8DADF9AC-ED62-4995-976C-0FE25F1EFFDD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MobilePay.Contracts", "MobilePay.Contracts\MobilePay.Contracts.csproj", "{8DADF9AC-ED62-4995-976C-0FE25F1EFFDD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobilePay.Tests", "MobilePay.Tests\MobilePay.Tests.csproj", "{FA2FFC3E-B3EE-45CA-A5E9-5465F6CCF259}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MobilePay.Tests", "MobilePay.Tests\MobilePay.Tests.csproj", "{FA2FFC3E-B3EE-45CA-A5E9-5465F6CCF259}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

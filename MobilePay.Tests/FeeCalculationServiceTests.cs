@@ -1,10 +1,11 @@
 using MobilePay.Contracts;
-using MobilePay.Domain;
+using MobilePay.Services;
+using MobilePay.Tests.Mockers;
 using NUnit.Framework;
 using System;
 using System.Collections;
 
-namespace Tests
+namespace MobilePay.Tests
 {
     public class FeeCalculationServiceTests
     {
@@ -13,10 +14,14 @@ namespace Tests
         [SetUp]
         public void Setup()
         {
-            _feeCalculationService = new FeeCalculationService(new DiscountService());
+            var mocker = new DiscountServiceMocker();
+            _feeCalculationService = new FeeCalculationService(mocker.DiscountService);
+
+            mocker.DiscountService.AddOrUpdateDiscount("TELIA", 10);
+            mocker.DiscountService.AddOrUpdateDiscount("CIRCLE_K", 20);
         }
 
-        [TestCaseSource(nameof(TestCases))]
+        [TestCaseSource(nameof(CalculateFeeTestCases))]
         public TransactionFee TestCalculateFee(Transaction transaction)
         {
             return _feeCalculationService.CalculateFee(transaction);
@@ -24,7 +29,7 @@ namespace Tests
 
         // Testing return of whole TransactionFee object and not only Fee property
         // because output file has to contain information from transaction and merchant objects.
-        public static IEnumerable TestCases
+        public static IEnumerable CalculateFeeTestCases
         {
             get
             {

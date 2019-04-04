@@ -1,7 +1,7 @@
 ﻿using MobilePay.Contracts;
 using System.Collections.Generic;
 
-namespace MobilePay.Domain
+namespace MobilePay.Services
 {
     public interface IFeeCalculationService
     {

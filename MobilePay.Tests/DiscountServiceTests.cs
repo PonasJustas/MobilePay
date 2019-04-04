@@ -1,4 +1,4 @@
-﻿using MobilePay.Domain;
+﻿using MobilePay.Services;
 using NUnit.Framework;
 using System.Collections;
 
@@ -12,15 +12,17 @@ namespace MobilePay.Tests
         public void Setup()
         {
             _discountService = new DiscountService();
+            _discountService.AddOrUpdateDiscount("TELIA", 10);
+            _discountService.AddOrUpdateDiscount("CIRCLE_K", 20);
         }
 
-        [TestCaseSource(nameof(TestCases))]
-        public int? TestCalculateFee(string merchantName)
+        [TestCaseSource(nameof(GetDisountPercentagesTestCases))]
+        public int? TestGetDiscountPercentage(string merchantName)
         {
             return _discountService.GetDiscountPercentage(merchantName);
         }
         
-        public static IEnumerable TestCases
+        public static IEnumerable GetDisountPercentagesTestCases
         {
             get
             {
